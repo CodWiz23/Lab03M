@@ -1,0 +1,40 @@
+public class postFixCalTesting {
+
+    public double precision(IStack stack, IPostFixCal calculator) {
+        int correctResults = 0; // Counter for correct results
+
+        // Define five postfix expressions to test
+        String[] postfixExpressions = {
+            "12+3*", result is  
+            "36/4+",  // result is 10
+            "92/5+",  // result is 11
+            "53*4+",  // result is 22
+            "72*8+",  // result is 64
+             "89+*",   //result is 17
+
+        };
+
+        // Define the expected results for the expressions
+        int[] expectedResults = {10, 11, 22, 64, 17};
+
+        // Iterate through the expressions and compare the results
+        for (int i = 0; i < postfixExpressions.length; i++) {
+            String postfixExpression = postfixExpressions[i];
+            int expectedResult = expectedResults[i];
+
+            // Calculate the result using the provided calculator
+            int result = calculator.calculate(stack, postfixExpression);
+
+            // Check if the calculated result matches the expected result
+            if (result == expectedResult) {
+                correctResults++;
+            }
+        }
+
+        // Calculate precision as the number of correct results divided by 5
+        double precision = (double) correctResults / 5.0;
+        
+        return precision;
+    }
+
+}
