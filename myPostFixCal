@@ -1,0 +1,59 @@
+public class myPostFixCal implements IPostFixCal{
+
+	public int calculate(IStack stack, String postFixString)
+	{
+//Refrence for the +-/*
+		String ref = "+-/*";
+//Creates a stack from the string 
+		for(int i = 0; i < postFixString.length(); i++)
+		{
+			
+			stack.push(postFixString.charAt(i));
+			
+		}
+//Initializes integers
+		int k = -1;
+		int f;
+		int fin = 0;
+//While the stack is empty it runs a while loop
+		while(stack.isEmpty() == false)
+		{
+		if((int)stack.peek() > 0 && (int)stack.peek() <= 9 && k == -1)
+		{
+			k = stack.pop();
+			fin = k;
+		}
+		if((int)stack.peek() > 0 && (int)stack.peek() <= 9 && k >=0 )
+		{
+			f = stack.pop() + k*10;
+			fin = f;
+		}
+		if(stack.peek() == ref.charAt(0))
+		{
+			stack.pop();
+			fin += stack.pop();
+			
+		}
+		if(stack.peek() == ref.charAt(1))
+		{
+			stack.pop();
+			fin -= stack.pop();
+			
+		}
+		if(stack.peek() == ref.charAt(2))
+		{
+			stack.pop();
+			fin /= stack.pop();
+			
+		}
+		if(stack.peek() == ref.charAt(3))
+		{
+			stack.pop();
+			fin *= stack.pop();
+			
+		}
+		}
+		
+		return fin;
+	}
+}
