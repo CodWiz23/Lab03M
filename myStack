@@ -1,18 +1,25 @@
 package Lab03M;
 import java.util.LinkedList;
 
+// MYSTACK CLASS //
+// Written by Colby Cormier
+// This class contains a custom stack built on a linked list
 public class myStack implements IStack
 {
 	// Linked List on which the stack is built
 	LinkedList<Character> stackList = new LinkedList<Character>();
 	
-	// This pushes a character to the stackList
+	// PUSH METHOD //
+        // @input Character c : A character to push to the "stack
+        // This method pushes a specified character into the linked list that represents the stack
 	public void push (Character c)
 	{
 		stackList.push(c);
 	}
 	
-	// Return the first element of the stack list, and remove it from the linked list
+	// POP METHOD //
+        // @output Character popChar : Returns the first element of the linked list
+        // This method returns the first element of the stack linked list, and removes that element from the list
 	public Character pop()
 	{
 		Character popChar = stackList.get(0);
@@ -20,13 +27,17 @@ public class myStack implements IStack
 		return popChar;
 	}
 	
-	// Return the first element of the stack list, but do not remove it
+	// PEEK METHOD //
+	// @output Character stackList.get(0) : The first element of the stack list
+        // This method returns the first element in the stack list without removing it
 	public Character peek()
 	{
 		return stackList.get(0);
 	}
 	
-	// Returns true if the stack list is empty, returns false otherwise
+	// IS EMPTY METHOD //
+        // @output boolean : returns true if the stack list's size is equal to 0, otherwise returns true
+        // This method allows us to check whether the stack list is empty or not
 	public boolean isEmpty()
 	{
 		return (stackList.size() == 0);
