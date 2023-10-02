@@ -1,0 +1,34 @@
+package Lab03M;
+import java.util.LinkedList;
+
+public class myStack implements IStack
+{
+	// Linked List on which the stack is built
+	LinkedList<Character> stackList = new LinkedList<Character>();
+	
+	// This pushes a character to the stackList
+	public void push (Character c)
+	{
+		stackList.push(c);
+	}
+	
+	// Return the first element of the stack list, and remove it from the linked list
+	public Character pop()
+	{
+		Character popChar = stackList.get(0);
+		stackList.remove(0);
+		return popChar;
+	}
+	
+	// Return the first element of the stack list, but do not remove it
+	public Character peek()
+	{
+		return stackList.get(0);
+	}
+	
+	// Returns true if the stack list is empty, returns false otherwise
+	public boolean isEmpty()
+	{
+		return (stackList.size() == 0);
+	}
+}
