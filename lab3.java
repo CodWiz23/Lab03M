@@ -20,7 +20,7 @@ public class Lab3 {
 
         // Creating object of postFixCalTesting and executing precision method
         postFixCalTesting postFixCalTesting1 = new postFixCalTesting(); 
-        double precisionOutput = postFixCalTesting1.precision(); 
+        double precisionOutput = postFixCalTesting1.precision(stack, postFixCal); 
 
         // Printing the output of precision method
         System.out.println("The output of the precision method is: " + precisionOutput);
