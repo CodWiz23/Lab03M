@@ -18,40 +18,64 @@ public class myPostFixCal implements IPostFixCal{
 //While the stack is empty it runs a while loop
 		while(stack.isEmpty() == false)
 		{
-		if((int)stack.peek() > 0 && (int)stack.peek() <= 9 && k == -1)
-		{
-			k = stack.pop();
-			fin = k;
-		}
-		if((int)stack.peek() > 0 && (int)stack.peek() <= 9 && k >=0 )
-		{
-			f = stack.pop() + k*10;
-			fin = f;
-		}
-		if(stack.peek() == ref.charAt(0))
-		{
-			stack.pop();
-			fin += stack.pop();
+			if((int)stack.peek() > 0 && (int)stack.peek() <= 9)
+			{
+				k = stack.pop();
+
+				if((int)stack.peek() > 0 && (int)stack.peek() <= 9 && fin == 0)
+				{
+					f = stack.pop();
+					if(stack.peek() == ref.charAt(0))
+					{
+						stack.pop();
+						fin = f + k;
 			
-		}
-		if(stack.peek() == ref.charAt(1))
-		{
-			stack.pop();
-			fin -= stack.pop();
+					}
+					if(stack.peek() == ref.charAt(1))
+					{
+						stack.pop();
+						fin = k-f;
 			
-		}
-		if(stack.peek() == ref.charAt(2))
-		{
-			stack.pop();
-			fin /= stack.pop();
+					}
+					if(stack.peek() == ref.charAt(2))
+					{
+						stack.pop();
+						fin = k/f;
 			
-		}
-		if(stack.peek() == ref.charAt(3))
-		{
-			stack.pop();
-			fin *= stack.pop();
+					}
+					if(stack.peek() == ref.charAt(3))
+					{
+						stack.pop();
+						fin = k*f;
+				
+					}
+				}
 			
-		}
+			}
+			if(stack.peek() == ref.charAt(0))
+			{
+				stack.pop();
+				fin += k;
+			
+			}
+			if(stack.peek() == ref.charAt(1))
+			{
+				stack.pop();
+				fin -= k;
+			
+			}
+			if(stack.peek() == ref.charAt(2))
+			{
+				stack.pop();
+				fin /= k;
+			
+			}
+			if(stack.peek() == ref.charAt(3))
+			{
+				stack.pop();
+				fin *= k;
+			
+			}
 		}
 		
 		return fin;
